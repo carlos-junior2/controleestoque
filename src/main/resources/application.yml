@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: controleestoque
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/estoque?useTimezone=true&serverTimezone=UTC
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+
+    jpa:
+      database-platform: org.hibernate.dialect.MySQLDialect
+      show-sql: true
+      properties:
+        hibernate.format_sql: true
