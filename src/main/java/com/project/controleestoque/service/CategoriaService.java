@@ -5,6 +5,8 @@ import com.project.controleestoque.repository.CategoriaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class CategoriaService {
@@ -13,5 +15,9 @@ public class CategoriaService {
 
     public Categoria salvar(Categoria categoria){
         return categoriaRepository.save(categoria);
+    }
+
+    public Optional<Categoria> buscarPorId(Integer id){
+        return categoriaRepository.findById(id);
     }
 }

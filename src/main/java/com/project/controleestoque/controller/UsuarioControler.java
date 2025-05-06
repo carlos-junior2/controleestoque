@@ -3,7 +3,10 @@ package com.project.controleestoque.controller;
 import com.project.controleestoque.model.Usuario;
 import com.project.controleestoque.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.net.URI;
 
 @RestController
 @RequiredArgsConstructor
@@ -13,10 +16,10 @@ public class UsuarioControler {
     private final UsuarioService usuarioService;
 
     @PostMapping
-    public Usuario salvarUsuario(@RequestBody Usuario usuario){
-        System.out.println(usuario);
+    public ResponseEntity<Usuario> salvarUsuario(@RequestBody Usuario usuario){
         usuarioService.salvar(usuario);
-        return usuario;
+        URI uri = URI.create("/" + usuario.getId());
+        return ResponseEntity.created(uri).body(usuario);
     }
 
     @GetMapping("/test")
