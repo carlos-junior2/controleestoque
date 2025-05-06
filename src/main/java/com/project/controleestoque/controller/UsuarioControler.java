@@ -6,14 +6,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/usuario")
 public class UsuarioControler {
 
-    private UsuarioService usuarioService;
-
-    public UsuarioControler(UsuarioService usuarioService) {
-        this.usuarioService = usuarioService;
-    }
+    private final UsuarioService usuarioService;
 
     @PostMapping
     public Usuario salvarUsuario(@RequestBody Usuario usuario){
