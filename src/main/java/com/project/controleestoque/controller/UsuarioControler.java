@@ -1,5 +1,6 @@
 package com.project.controleestoque.controller;
 
+import com.project.controleestoque.controller.dto.UsuarioDTO;
 import com.project.controleestoque.model.Usuario;
 import com.project.controleestoque.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,8 @@ public class UsuarioControler {
     private final UsuarioService usuarioService;
 
     @PostMapping
-    public ResponseEntity<Usuario> salvarUsuario(@RequestBody Usuario usuario){
+    public ResponseEntity<Usuario> salvarUsuario(@RequestBody UsuarioDTO dto){
+        Usuario usuario = dto.toEntity();
         usuarioService.salvar(usuario);
         URI uri = URI.create("/" + usuario.getId());
         return ResponseEntity.created(uri).body(usuario);

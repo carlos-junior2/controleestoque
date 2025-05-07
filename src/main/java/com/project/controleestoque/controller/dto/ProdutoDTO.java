@@ -14,7 +14,7 @@ public class ProdutoDTO {
     private Integer estoqueMinimo;
     private Integer categoria;
 
-    public ProdutoDTO(Produto produto) {
+    public void toDTO(Produto produto) {
         this.id = produto.getId();
         this.nome = produto.getNome();
         this.descricao = produto.getDescricao();
