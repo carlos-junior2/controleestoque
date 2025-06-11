@@ -12,7 +12,7 @@ import java.net.URI;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/usuario")
-public class UsuarioControler {
+public class UsuarioController {
 
     private final UsuarioService usuarioService;
 
